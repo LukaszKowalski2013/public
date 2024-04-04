@@ -43,10 +43,6 @@ m['waa_count'] = m.groupby('ZONENUMMER_WAA')['ZONENUMMER_WAA'].transform('count'
 m['count'] = m[['ant_count', 'kem_count', 'mec_count', 'waa_count']].min(axis=1)
 m['area'] = m.area
 m.to_file("microregions_output.geojson", driver='GeoJSON')
-#todo solve it later
-# x = m[m['count']>1]
-# x.to_file("wtf_microregions.geojson", driver='GeoJSON')
-# todo handle later [1732, 1267, ] & verry small areas: 1337, 2133, 5
 
 ### STEP 2 INDENTIFY MICROREGIONS IN EACH MATRIX OF FLOWS, CLASSIFY FLOWS MICRO-MICRO & OTHER. Do not duplicate flows.
 
