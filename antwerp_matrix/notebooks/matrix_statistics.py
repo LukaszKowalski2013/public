@@ -15,8 +15,7 @@ more_micro_than_total = pd.read_csv("more_micro_than_total.csv")
 less_micro_than_total = pd.read_csv("less_micro_than_total.csv")
 
 # total flows in antwerp matrix
-total_flows_mean = 5124580
-total_flows_ant = 4994773
+total_flows_ant = 4272924 # new value
 
 # split all dfs by source into 4 groups
 sources = differences["source"].unique()
@@ -152,7 +151,7 @@ def plot_4_describe_tables(sources, descs, title='', output_file="descs.html"):
         showlegend=False,
         title_text=title,
     )
-    fig.write_html("descs.html")
+    fig.write_html(output_file)
     return fig
 
 fig = plot_4_describe_tables(sources, descs, title = 'descriptive statistics for difference df',output_file="descs.html")
@@ -171,3 +170,5 @@ fig = go.Figure(data=[go.Table(
 )
 ])
 fig.write_html("missed_flows_descs.html")
+
+
